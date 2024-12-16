@@ -1,4 +1,5 @@
 package org.example.coffeeservice;
+
 public enum Extra {
     EXTRA_MILK(0.30),
     FOAMED_MILK(0.50),
@@ -15,6 +16,6 @@ public enum Extra {
     }
 
     public String getName() {
-        return name(); // This will return the enum name (e.g., "EXTRA_MILK")
+        return name();
     }
 }

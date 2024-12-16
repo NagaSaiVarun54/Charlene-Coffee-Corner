@@ -8,7 +8,6 @@ public class CoffeeShopApp {
         Cart cart = new Cart();
 
         while (true) {
-            // Display the menu
             System.out.println("\nPlease select products (e.g., '1' for small coffee, '2' for bacon roll, '1, 2' for both small coffee and bacon roll): ");
             System.out.println("1. Small Coffee - CHF 2.50");
             System.out.println("2. Bacon Roll - CHF 4.50");
@@ -19,22 +18,17 @@ public class CoffeeShopApp {
             System.out.println("7. Special Roast - CHF 0.90");
             System.out.println("8. Finish and Generate Receipt");
 
-            // Input the selection as a comma-separated string
             String input = scanner.nextLine().trim();
 
-            // Check if the user wants to finish
             if (input.equals("8")) {
-                // Generate and print the receipt before exiting
                 System.out.println(cart.generateReceipt());
-                cart.clearCart(); // Clear the cart after generating the receipt
+                cart.clearCart();
                 System.out.println("Cart has been cleared. Thank you for your order!\n");
-                continue; // Continue to the next order
+                continue;
             }
 
-            // Split the input into individual selections
             String[] selections = input.split(",");
 
-            // Process each selection
             boolean validInput = true;
             for (String selection : selections) {
                 selection = selection.trim();
@@ -66,8 +60,6 @@ public class CoffeeShopApp {
                         break;
                 }
             }
-
-            // Only generate and print the receipt if the input was valid
             if (validInput) {
                 System.out.println(cart.generateReceipt());
             } else {

@@ -18,6 +18,6 @@ public enum Product {
     }
 
     public String getName() {
-        return name(); // This will return the enum name (e.g., "COFFEE_SMALL")
+        return name();
     }
 }
