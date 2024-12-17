@@ -15,8 +15,8 @@ public class Cart {
         if (isBeverage(product)) {
             beverageCount++;
         }
-        if (hasSnackInCart()) {
-            if(isBeverage(products)){
+        if (isSnack(product)) {
+            if(beveragesInCart(products)){
             beverageAndSnackOrder = true;
             }
         }
@@ -68,7 +68,7 @@ public class Cart {
         return product == Product.COFFEE_SMALL || product == Product.COFFEE_MEDIUM
                 || product == Product.COFFEE_LARGE || product == Product.ORANGE_JUICE;
     }
-    private boolean isBeverage(List<Product> products) {
+    private boolean beveragesInCart(List<Product> products) {
         for (Product product : products) {
             if (isBeverage(product)) {
                 return true;
@@ -77,13 +77,9 @@ public class Cart {
         return false;
     }
 
-    private boolean hasSnackInCart() {
-        for (Product product : products) {
-            if (product == Product.BACON_ROLL) {
-                return true;
-            }
-        }
-        return false;
+    private boolean isSnack(Product product) {
+                return product == Product.BACON_ROLL;
+
     }
 
     public void clearCart() {
