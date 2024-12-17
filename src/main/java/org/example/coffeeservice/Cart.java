@@ -6,15 +6,10 @@ import java.util.List;
 public class Cart {
     private List<Product> products = new ArrayList<>();
     private List<Extra> extras = new ArrayList<>();
-    private int beverageCount = 0;
     private boolean beverageAndSnackOrder = false;
 
     public void addProduct(Product product) {
         products.add(product);
-
-        if (isBeverage(product)) {
-            beverageCount++;
-        }
         if (isSnack(product)) {
             if(beveragesInCart(products)){
             beverageAndSnackOrder = true;
@@ -85,7 +80,6 @@ public class Cart {
     public void clearCart() {
         products.clear();
         extras.clear();
-        beverageCount = 0;
         beverageAndSnackOrder = false;
     }
 
